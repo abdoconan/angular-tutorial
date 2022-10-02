@@ -1,0 +1,8 @@
+<div class="card">
+    <div class="card-header">
+        {{ getOffEvenStatus() }}
+    </div>
+    <div class="card-body" [ngStyle]="{color: getOffEvenStatus() === 'Even'? 'Green' : 'Red'}">
+        <h5> Number is  {{ newNumber }} </h5>
+    </div>
+</div>

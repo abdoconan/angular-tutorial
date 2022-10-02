@@ -1,0 +1,13 @@
+<div class="card">
+    <div class="card-header">
+        {{ nServer.serverName }}
+    </div>
+    <div class="card-body">
+        <h5 class="card-titles">
+            This server status is {{ nServer.serverStatus }}
+        </h5>
+        <button class="btn btn-outline-dark me-2" (click)="onUpdateServerStatus('active')">Set server to Active</button>
+        <button class="btn btn-outline-dark me-2" (click)="onUpdateServerStatus('inactive')">Set server to Inactive</button>
+        <button class="btn btn-outline-dark me-2" (click)="onUpdateServerStatus('unknown')">Set server to Unknown</button>
+    </div>
+</div>

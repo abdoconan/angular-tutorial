@@ -1,0 +1,26 @@
+<div class="col-xs-12">
+    <form class="form-group">
+        <label for="servername" class="form-label">
+            Server Name:
+        </label>
+        <input class="form-control" type="text" id="servername" placeholder="Please enter server Name" #formAddName>
+
+
+        <label for="serverStatus" class="form-label"> 
+            Server Status:
+        </label>
+        <select name="serverStatus" id="serverStatus" class="form-select" #formAddSelected>
+            <option value="" disabled selected>Select your option</option>
+            <option value="active">active</option>
+            <option value="inactive">inactive</option>
+            <option value="unknown">unknown</option>
+        </select>
+    </form>
+    <button class="btn btn-primary mt-1" (click)="addSever()">
+        Add
+    </button>
+    <br>
+    <p *ngIf="!isFormValid" class="text-danger mt-2">
+        This form is not valid. Please enter valid options
+    </p>
+</div>

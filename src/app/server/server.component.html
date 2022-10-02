@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-xs-8">
+        <div class="card">
+            <div class="card-header">
+                {{ server.name }}
+            </div>
+            <div class="card-body">
+                <h5 class="card-title" [ngStyle]="{color: server.type === 'server'? 'red': 'lightblue'}">
+                    {{ server.content }}
+                </h5>
+                <button href="#" class="btn btn-primary" type="button" (click)="deleteServer()">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>

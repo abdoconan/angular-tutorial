@@ -1,0 +1,13 @@
+<button class="btn btn-primary" (click)="changeDetails()">
+    Show more Details
+</button>
+<p class="my-5" *ngIf="showDetails">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Id quo accusantium amet ut illum quam porro alias quibusdam aspernatur quasi est, dolores sed illo voluptate itaque quis excepturi, blanditiis enim?
+</p>
+<p 
+    *ngFor="let x of buttonClicked; let i = index" 
+    [ngStyle]="{backgroundColor: i >= 5? 'red' : 'green'}" 
+    [ngClass]="{textWhite: i >= 5}"
+>
+    button clicked
+</p>

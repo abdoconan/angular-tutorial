@@ -1,0 +1,12 @@
+<div class="row">
+    <div class="col-sm-2">
+        <button class="btn btn-primary" type="button" (click)="startInterval()"> Start Game </button>
+    </div>
+    <div class="col-sm-2">
+        <button class="btn btn-danger" type="button" (click)="deleteInterval()"> Pause Game </button>
+    </div>
+</div>
+
+<div class="row" *ngFor="let number of numbers">
+    <app-numbers [inputedNumber]="number"></app-numbers>
+</div>

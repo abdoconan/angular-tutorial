@@ -1,0 +1,13 @@
+<div class="row">
+    <app-add-server (newServerCreated)="createNewServer($event)"></app-add-server>
+</div>
+<hr>
+<div class="row">
+    <app-server-object class="my-2"
+     *ngFor="let server of servers; let i=index"
+     [nServer]="server"
+     [nServerIndex]="i" 
+     (newStatus)="updateServerStatus($event)"
+    >
+    </app-server-object>
+</div>
