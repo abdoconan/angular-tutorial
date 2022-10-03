@@ -17,6 +17,7 @@ import { ActiveUsersService } from './services/activeUsers.service';
 import { UsersService } from './services/user.service';
 import { unActiveUsersService } from './services/unActiveUsers.service';
 import { FormHandelingComponent } from './form-handeling/form-handeling.component';
+import { FormDervinComponent } from './form-dervin/form-dervin.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { FormHandelingComponent } from './form-handeling/form-handeling.componen
     ServerObjectComponent,
     UserActivesComponent,
     FormHandelingComponent,
+    FormDervinComponent,
   ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule],
   providers: [ActiveUsersService, unActiveUsersService, UsersService],
