@@ -1,31 +1,165 @@
-
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-sm-8">
-            <form class="border border-2 rounded p-3 shadow-lg" (ngSubmit)="submitted(f)" #f="ngForm">
-                <div class="form-group my-2">
-                    <label for="userName" class="form-label">Enter User Name:</label>
-                    <input type="text" class="form-control" id="userName" placeholder="Enter User Name" ngModel name="userName">
-                </div>
-                <button class="btn btn-default" type="button"> Suggestion of User Name</button>
-                <div class="form-group my-2">
-                    <label for="userEmail" class="form-label">Enter User Email:</label>
-                    <input type="text" class="form-control" id="userEmail" placeholder="Enter User Name" ngModel name="userEmail">
-                </div>
-                <div class="form-group my-2">
-                    <label for="Secret" class="form-label">Select Question</label>
-                    <select ngModel name="Secret" id="Secret" class="form-select">
-                        <option value="Pet"> Favorite Pet?</option>
-                        <option value="Teacher"> Frist Teacher?</option>
-                    </select>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-4">
-                        <button class="btn btn-primary w-100 mt-2 text-center" type="submit"> Submit</button>
-                    </div>
-                </div>
-                
-            </form>
+<!-- <div class="container">
+  <div class="row justify-content-center">
+    <div class="col-sm-8">
+      <form
+        class="border border-2 rounded p-3 shadow-lg"
+        (ngSubmit)="submitted()"
+        #f="ngForm"
+      >
+        <div class="form-group my-2">
+          <label for="userName" class="form-label">Enter User Name:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="userName"
+            placeholder="Enter User Name"
+            ngModel
+            name="userName"
+            required
+          />
         </div>
+        <button
+          class="btn btn-outline-dark"
+          type="button"
+          (click)="userNameSuggest()"
+        >
+          Suggestion of User Name
+        </button>
+        <div class="form-group my-2">
+          <label for="userEmail" class="form-label">Enter User Email:</label>
+          <input
+            type="email"
+            class="form-control"
+            id="userEmail"
+            placeholder="Enter User Name"
+            ngModel
+            name="userEmail"
+            required
+            email
+            #email="ngModel"
+          />
+        </div>
+        <span class="help-block" *ngIf="email.invalid && email.touched">
+          Please enter valid email address
+        </span>
+        <div class="form-group my-2">
+          <label for="Secret" class="form-label">Select Question</label>
+          <select ngModel name="Secret" id="Secret" class="form-select">
+            <option value="Pet">Favorite Pet?</option>
+            <option value="Teacher">Frist Teacher?</option>
+          </select>
+        </div>
+        <div class="radio" *ngFor="let gender of genders">
+          <label>
+            <input
+              type="radio"
+              class="radio"
+              [value]="gender"
+              ngModel
+              name="gender"
+              required
+            />
+            {{ gender }}
+          </label>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-4">
+            <button
+              class="btn btn-primary w-100 mt-2 text-center"
+              type="submit"
+              [disabled]="f.invalid"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </form>
     </div>
+  </div>
+</div> -->
+<div class="container">
+  <div
+    class="row justify-content-center bg-dark border border-succendry border-3 rounded rounded-3 shadow-lg"
+  >
+    <div class="col-md-8">
+      <form #f="ngForm" class="p-2" (ngSubmit)="Submitted()">
+        <div class="form-group my-2">
+          <label for="Email" class="form-label text-white">Email: </label>
+          <input
+            type="email"
+            class="form-control"
+            id="Email"
+            name="Email"
+            required
+            email
+            ngModel
+            #Email="ngModel"
+          />
+          <span
+            class="help-block text-danger"
+            *ngIf="Email.touched && Email.invalid"
+          >
+            Please Enter valid email address
+          </span>
+        </div>
+        <div class="form-group my-2">
+          <label for="Password" class="form-label text-white">Password: </label>
+          <input
+            type="password"
+            class="form-control"
+            id="Password"
+            name="Password"
+            required
+            ngModel
+            #password="ngModel"
+          />
+          <span
+            class="help-block text-danger"
+            *ngIf="password.touched && password.invalid"
+          >
+            Please Enter your password
+          </span>
+        </div>
+        <div class="form-group my-4">
+          <select
+            name="subsecribtion"
+            id="selection"
+            class="form-select text-dark"
+            [ngModel]="'Advanced'"
+          >
+            <option
+              *ngFor="let subsecription of subsecriptionTypes"
+              [value]="subsecription"
+            >
+              {{ subsecription }}
+            </option>
+          </select>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+            <button
+              class="btn btn-light w-100"
+              type="submit"
+              [disabled]="f.invalid"
+            >
+              submit
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
+<hr />
+<ng-template [ngIf]="user">
+  <div class="container mt-3">
+    <div class="row bg-dark text-white">
+      <div class="col-12">
+        <h2>User Data Are:</h2>
+        <p>Email: {{ user.email }}</p>
+        <p>Password: {{ user.password }}</p>
+        <p>subsecribtion: {{ user.subsecribtion }}</p>
+      </div>
+    </div>
+  </div>
+</ng-template>
